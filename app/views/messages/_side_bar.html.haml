@@ -1,0 +1,34 @@
+.side
+  .side__header
+    .side__header--items
+      %p.side__header--items--name
+        aa
+      %ul.side__header--items--icon
+        %li.side__header--items--icon--pen
+          =link_to "#" do
+            = icon("far", "edit")
+        %li.side__header--items--icon--gear
+          = link_to "#" do
+            = icon("fas", "cog")
+  .side__groups
+    .side__groups--group
+      %a.side__groups--group--name
+        = link_to "#" do
+          abc
+      %p.side__groups--group--message
+        まだメッセージがありません
+    
+    .side__groups--group
+      %a.side__groups--group--name
+        = link_to "#" do
+          def
+      %p.side__groups--group--message
+        ghijk
+    
+    .side__groups--group
+      %a.side__groups--group--name
+        = link_to "#" do
+          LMN
+      %p.side__groups--group--message
+        まだメッセージがありません    
+    
