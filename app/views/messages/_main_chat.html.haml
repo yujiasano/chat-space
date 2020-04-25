@@ -2,42 +2,35 @@
   .main__header 
     .main__header--left
       .main__header--left--group_name
-        aaaa
+        = @group.name
       .main__header--left--group_member
-        bbb
+        %ul
+          Member：
+          - @group.users.each do |user|
+            %li= user.name
     .main__header--edit
-      = link_to "#" do
+      = link_to edit_group_path(@group.id) do
         Edit
   .main__messages
     .main__messages--list
-      .main__messages--list--name
-        YUJI
-        .main__messages--list--name--create
-          2020/04/23(Thu) 13:00:01
-      .main__messages--list--message
-        おはよう！!!!!!!!!!!!!!!!!!!
-    
-    .main__messages--list
-      .main__messages--list--name
-        asano
-        .main__messages--list--name--create
-          2020/04/23(Thu) 13:00:01
-      .main__messages--list--message
-        おはよう！
+      = render partial: "message", collection: @messages 
 
-    .main__messages--list
-      .main__messages--list--name
-        acb
-        .main__messages--list--name--create
-          2020/04/23(Thu) 13:00:01
-      .main__messages--list--message
-        aiueo 
+
 
   .main__form
-    %form.new_message
+    .create_message
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon("fas", "image")
-          %input{type: "file", class: "input-box__image--file"}
-      %input{type: "submit", value: "Send", class: "submit_btn"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: "input-box__text", placeholder: "type a message"
+          = f.label :image, class: "input-box__image" do
+            = icon("fas", "image")
+            = f.file_field :image, class: "input-box__image--file"
+          = f.submit "Send", class: "submit_btn"
+
+
+
+      -#   %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+      -#   %label{class: "input-box__image"}
+      -#     = icon("fas", "image")
+      -#     %input{type: "file", class: "input-box__image--file"}
+      -# %input{type: "submit", value: "Send", class: "submit_btn"}
