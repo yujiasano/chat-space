@@ -88,6 +88,12 @@
       &--group_member {
         color: #999999;
         font-size: 12px;
+        ul {
+          display: flex;
+          li {
+            padding-left: 5px;
+          }
+        }
       }
     }
     &--edit {
@@ -112,10 +118,15 @@
     padding: 35px 40px 46px 40px;
     &--list {
       padding-bottom: 46px;
-      &--name {
-        color: #333333;
-        font-size: 16px;
+      // display: flex;
+      &--title{
         display: flex;
+        &--name {
+          color: #333333;
+          font-size: 16px;
+          // display: flex;
+          font-weight: bold;
+        }
         &--create {
           color: #999999;
           font-size: 12px;
@@ -127,7 +138,7 @@
         font-size: 14px;
         padding-top: 12px;
       }
-    
+      
     }
   }
 
@@ -138,13 +149,20 @@
     
     form {
       display: flex;
+      width: 100%; 
+      height: 100%; //追加
+      padding: 20px 15px 20px 40px;
+      position: relative;
       .input-box {
         width: 100%;
         display: flex;
-        margin-left: 40px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        position: relative;
+        // margin-left: 40px;
+        // margin-top: 20px;
+        // margin-bottom: 20px;
+        // position: relative;
+        // .field_with_errors {
+          
+        // }
         &__text {
           height: 50px;
           width: 100%;
@@ -153,8 +171,8 @@
         }
         &__image {
           position: absolute;
-          top: 10px;
-          right: 10px;
+          top: 30px;
+          right: 180px;
           cursor: pointer;
           font-size: 1.3rem;
           &--file {
@@ -166,7 +184,9 @@
         width: 100px;
         height: 50px;
         padding: 0 30px;
-        margin: 20px 40px 20px 15px;
+        // margin: 20px 40px 20px 15px;
+        margin-left: 15px;
+        margin-right: 20px;
         background-color: #38aef0;
         color: #fafafa;
         cursor: pointer;

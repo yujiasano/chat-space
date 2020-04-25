@@ -1,0 +1,19 @@
+.message
+  .main__messages--list
+    .main__messages--list--title
+      .main__messages--list--title--name
+        = message.user.name
+      .main__messages--list--title--create
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+    .main__messages--list--message
+      - if message.content.present?
+        %p.lower-message__content
+          = message.content
+      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+  -# .main__messages--list--name
+  -#   YUJI
+  -#   .main__messages--list--name--create
+  -#     2020/04/23(Thu) 13:00:01
+  -# .main__messages--list--message
+  -#   おはよう！!!!!!!!!!!!!!!!!!!
